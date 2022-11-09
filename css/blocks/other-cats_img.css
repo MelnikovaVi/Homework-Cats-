@@ -1,0 +1,10 @@
+.other-cats_img {
+    flex: 0.2;
+    min-height: 300px;
+    min-width: 400px;
+    width: 100%;
+    background-image: url("https://pngimg.com/uploads/cat/cat_PNG50485.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom left;
+}

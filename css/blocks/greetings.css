@@ -1,0 +1,64 @@
+.greetings {
+    /* flex: 0.1; */
+    color: var( --greetings-color);
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 10px solid var(--header-color);
+}
+
+.greetings__text h1{
+    padding: 10px 30px;
+    max-width: 900;
+    min-width: 150px;
+    font-family: 'Caveat', cursive;
+    font-size: 64px;
+    text-shadow: 2px 3px 3px rgb(0, 0, 0);
+}
+
+.greetings__img{
+    background-image: url("https://pngimg.com/uploads/cat/cat_PNG50539.png");
+    background-repeat: no-repeat;
+    background-size: contain, cover;
+    background-position: bottom right, left top ;
+    min-width: 150px;
+    min-height: 200px;
+    width: 100%;
+}
+
+
+@media (max-width: 900px) {
+    .greetings {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .greetings__text h1 {
+        padding: 5px 10px;
+        font-size: 40px;
+        margin-top: 100px;
+    }
+    .greetings__img{
+        min-width: 300px;
+        min-height: 250px;
+        width: 100%;
+    
+    }
+}
+
+@media (max-width: 500px) {
+    .greetings {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        }
+    .greetings__text h1 {
+        margin-top: 100px;
+        padding: 5px 15px;
+        font-size: 30px;
+        }
+        .greetings__img{
+            min-width: 300px;
+            min-height: 250px;
+            width: 100%;
+        }
+}

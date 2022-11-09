@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat house - Кошки в добрые руки</title>
+    <script src="https://kit.fontawesome.com/e26d05c725.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+</head>
+<body class="page">
+
+    <header class="header">
+        <div class="container header__container">
+            <div class="container logo_container">
+                <a href="#" class="logo"><img src="img/cat_on_pillow.png" alt="logo__img"> Кошкин Дом</a>
+            </div>
+            <div class="container btn_container">
+                <button class="btn" id="addCat"><i class="fa-solid fa-paw fa-2x"></i> Добавь кота! </button>
+                <button class="btn" id="autorization">Войти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main container">
+        <section class="greetings container">
+            <div class="greetings__text animate__animated animate__fadeInLeft"> 
+                <h1>Всё, что им нужно, это Ваша любовь и забота... Позаботьтесь о животных, они этого заслуживают...</h1>
+            </div>
+            <div class="greetings__img"></div>
+        </section>
+        <section class="cards">
+            <h2 class="visually-hidden">Список котят в добрые руки</h2>           
+        </section>
+    </main>
+
+    <div class="other-cats_img"></div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="container footer__container">
+                <span class="copyright">© Made by Vi</span>
+                <div class="socials">
+                    <a href="#" class="socials_link"><i class="fa-brands fa-github socials__icon"></i></a>
+                    <a href="#" class="socials_link"><i class="fa-brands fa-vk socials__icon"></i></a>
+                    <a href="#" class="socials_link"><i class="fa-brands fa-telegram socials__icon"></i></a>
+                    <a href="#" class="socials_link"><i class="fa-brands fa-pinterest socials__icon"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Разметка попапов создаётся после footer -->
+
+    <!-- HTML разметка формы карточек для заполнения -->
+    <div class="popup popup-add-cats">
+        <div class="popup__container">
+            <button class="popup__close btn"><i class="fa-solid fa-xmark"></i></button>
+            <h2>Добавить питомца</h2>
+            <form class="form" id="popup-form-cat">
+                <div class="form__image"></div>
+                <input type="number" class="form__input" name="id" min="1" required placeholder="id">
+                <input type="number" class="form__input" name="age" placeholder="Возраст">
+                <input type="text" class="form__input" name="name" placeholder="Имя">
+                <input type="number" class="form__input" name="rate" placeholder="Рейтинг (0-10)"min="0" max="10">
+                <textarea name="description" class="form__input form__textarea" placeholder="Описание"></textarea>
+                <label class="form__checkbox-wrap">
+                    <input type="checkbox" name="favourite" class="form__checkbox" placeholder="">
+                    <span class="form__label">Любимчик</span>
+                    <span class="form__fake-checkbox"> <i class="fa-regular fa-circle-check"></i></span>
+                </label>
+                <input type="url" class="form__input form__input_image" name="img_link" placeholder="Ссылка">
+                <button type="submit" class="form__btn btn">Добавить котика</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- HTML разметка попапа-авторизации -->
+    <div class="popup popup-autorization">
+        <div class="popup__container">
+            <button class="popup__close btn"><i class="fa-solid fa-xmark"></i></button>
+            <h2>Авторизация</h2>
+            <form class="form" id="popup-form-autorization">
+                <input type="text" class="form__input form__input_autoriz" name="nickname" required placeholder="  Введите никнейм">
+                <input type="email" class="form__input form__input_autoriz" name="email" min="1" required placeholder="  Введите email">
+                <input type="password" class="form__input form__input_autoriz" name="password" placeholder="  Введите пароль">
+                <button type="submit" class="form__btn btn">Войти</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- HTML разметка попапа-детальной информации о котиках -->
+    <div class="popup popup-card-detail">
+        <div class="popup__container ">
+            <button class="popup__close btn popup__close_external"><i class="fa-solid fa-xmark"></i></button>
+            <div class="popup__content"></div>
+        </div>
+    </div>
+
+    <!-- HTML разметка попапа-картинки котика -->
+    <div class="popup popup-show-img">
+        <div class="popup__container">
+            <button class="popup__close btn popup__close_external"><i class="fa-solid fa-xmark"></i></button>
+            <img src="#" alt="Здесь кот" class="popup__show-img">
+        </div>
+    </div>
+
+    <!-- особая текстовая разметка template - скрывает шаблон для карточки -->
+    <template id="card-template">
+        <div class="card">
+            <img src="#" alt="Изображение" class="card__image">
+            <a href="#" class="card__link"><h3 class="card__name"></h3></a>
+            <button class="card__like" area-label="Поставить лайк"><i class="fa-solid fa-heart fa-2x"></i></button>
+        </div>
+    </template>
+
+    <!-- разметка template детальной информации о коте -->
+    <template id="card-detail-template"> 
+        <div class="card-detail">
+            <button class="card-detail__edit"><i class="fa-solid fa-file-pen"></i>Редактировать</button>
+            <button class="card-detail__save card-detail__saved_hidden"> <i class="fa-regular fa-floppy-disk"></i>Сохранить</button>
+            <button class="card-detail__delete"><i class="fa-solid fa-trash-can"></i>Удалить</button>
+            <img src="#" alt="Фото котика" class="card-detail__img">
+            <span class="card-detail__id"></span>
+            <div class="card-detail__title">
+                <h2 class="card-detail__name"></h2>
+                <button class="card-detail__favourite"><i class="fa-solid fa-heart fa-2x"></i></button>
+            </div>
+            <span class="card-detail__rate"></span>
+            <div class="card-detail__age">
+                <span class="card-detail__age-val"></span>
+                <span class="card-detail__age-text"></span>
+            </div>
+            <p class="card-detail__description"></p>
+        </div>
+    </template>
+
+    <script src="./script/index.js" defer type="module"></script>
+</body>
+</html>

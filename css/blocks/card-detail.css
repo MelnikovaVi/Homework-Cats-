@@ -1,0 +1,29 @@
+.card-detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.card-detail__edit_hidden {
+    display: none;
+    /* visibility: hidden; */
+}
+
+.card-detail__saved_hidden {
+   display: none;
+   /* visibility: hidden; */
+}
+
+.card-detail [contentEditable = 'true'] {
+    box-shadow: 0 0 1px 1px var(--greetings-color);
+    outline: none;
+}
+
+.card-detail [contentEditable = 'true']:focus {
+    box-shadow: 0 0 1px 1px var(--primary-color);
+    outline: none;
+}
+.card-detail__favourite_active {
+    color: red;
+}

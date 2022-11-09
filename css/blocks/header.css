@@ -1,0 +1,16 @@
+.header {
+    box-shadow: 0 0 2px 0 var(--bg-secondary-color);
+    border-color: var(--bg-main-color);
+    background-color: var(--header-color);
+    padding: 10px 0px;
+    color: var(--text-light-color);
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

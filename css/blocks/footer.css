@@ -1,0 +1,12 @@
+.footer {
+    padding: 10px 0px;
+    box-shadow: 0 0 2px 0 var(--bg-secondary-color);
+    border-color: var(--bg-main-color);
+    background-color: var(--header-color);
+}
+
+.footer__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

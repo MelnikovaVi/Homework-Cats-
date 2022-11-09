@@ -1,0 +1,84 @@
+.form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+}
+
+.form__image {
+    grid-row: span 3;
+    background-image: url("/img/kotenok.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 2px solid var(--bg-secondary-color);
+    border-radius: 8px;
+}
+
+.form__textarea {
+    grid-row: span 2;
+    resize: none;
+    height: 100%;
+    color: var(--bg-secondary-color);
+    border: 2px solid var(--greetings-color);
+}
+
+.form__btn {
+    font-size: 14px;
+    width: 100%;
+}
+
+.form__input {
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--outline-color);
+    border-radius: 4px;
+    padding: 8px 8px;
+}
+ input:focus {
+    background-color: var(--greetings-color);
+    color: var(--bg-secondary-color);
+} 
+
+.form__fake-checkbox {
+    font-size: 22px;
+}
+
+.form__checkbox-wrap {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 10px;
+}
+
+.form__checkbox {
+    appearance: none;
+    position: absolute;
+}
+
+.form__checkbox:focus~.form__fake-checkbox,
+.form__checkbox:focus~.form__label {
+    color: var(--text-secondary-color);
+}
+
+.form__checkbox:checked~.form__fake-checkbox,
+.form__checkbox:checked~.form__label {
+    color: var(--accent-color);
+}
+
+.form__checkbox:checked:focus~.form__fake-checkbox,
+.form__checkbox:checked:focus~.form__label {
+    opacity: 0.6;
+}
+
+#popup-form-autorization {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form__input_autoriz {
+    min-width: 400px;
+    padding: 20px 0px;
+}

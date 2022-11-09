@@ -1,0 +1,38 @@
+Создан тег Template внутри которого есть разметка (то что будет отображено на главном экране - вид карточки (картинка, имя кота, лайк/не лайк))
+при открытии дом дерева если развернуть тег Template то в развертывании не будет разметки карточки, там будет #document-fragment, а уже в нем при развертывании будет разметки карточки - это происходит в тегах Template.
+Чтобы из JS добрать до разметки карточки нужно применить querySelector по Id:
+1) document.querySelector("#card-temlate") - получаем <template id="card-template"></template> в консоли;
+2) применяем свойство, которое есть только у тега Template - называется content:
+document.querySelector("#card-temlate").content - теперь в консоли получаем #document-fragment;
+3) чтобы попасть внутрь #document-fragment нужно вызвать querySelector по классу
+_______________________________________________________________________________________
+
+Почему нужно писать так
+1) btnOpenForm.addEventListener('click', ()=> popupAddCat.open()) - правильно
+а не так
+btnOpenForm.addEventListener('click', popupAddCat.open) - не правильно
+
+в 1) случае this не потеряется, функция вызывается на экземпляре класса 
+во 2) случае this потеряется, так как передаем код функции по ссылке она будет вызываться не на экземпляре класса, а в глобальной области видимости и this будет брать кнопку btnOpenForm, а не наш класс - решение применить bind
+
+
+
+
+
+// GET https://sb-cats.herokuapp.com/api/show - отобразить всех котиков
+//     http://sb-cats.herokuapp.com/api/2/<name>/show
+
+// GET https://sb-cats.herokuapp.com/api/ids - отобразить все возможные айди котиков
+//     http://sb-cats.herokuapp.com/api/2/<name>/ids
+
+// GET https://sb-cats.herokuapp.com/api/show/:id  - отобразить конкретного котика
+//     http://sb-cats.herokuapp.com/api/2/<name>/show/<id кота>
+
+// POST https://sb-cats.herokuapp.com/api/add - добавить котика
+//     http://sb-cats.herokuapp.com/api/2/<name>/add
+
+// PUT https://sb-cats.herokuapp.com/api/update/:id - изменить информацию о котике
+//     http://sb-cats.herokuapp.com/api/2/<name>/update/<id кота>
+
+// DELETE  https://sb-cats.herokuapp.com/api/:id - удалить котика из базы данных
+//     http://sb-cats.herokuapp.com/api/2/<name>/delete/<id кота>

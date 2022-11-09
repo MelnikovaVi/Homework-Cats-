@@ -1,0 +1,17 @@
+:root {
+    --bg-main-color: #E8E9D7;
+    --bg-secondary-color: #191414;
+    --header-color:rgba(25, 20, 20, 0.8);
+    --text-main-color: #070606b8;
+    --text-light-color: #f8f7f7;
+    --text-secondary-color: #7B8E98;
+    --outline-color: #CFD8DC;
+    --form-color: #ECEFF1;
+    --accent-color: #405DE6;
+    --primary-color: #ff8512;
+    --secondary-color: #1DB954;
+    --tetriary-color: #CE2724;
+    --button-color: rgb(170, 53, 11);
+    --greetings-color: #ebc504;
+    --card-background: rgba(135, 129, 94, 0.533);
+}

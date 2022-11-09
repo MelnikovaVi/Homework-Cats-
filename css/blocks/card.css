@@ -1,0 +1,141 @@
+.card {
+    height: 166px;
+    border-radius: 10px;
+    /* display: flex; +2 свойства вниз - центрируют абсолютный блок, но лучше воздержаться от такого способа когда не задаем top и left они принимают значение auto, это значит, что элемент разместится там, где он должен быть в потоке и лучше сделать по 50% (card__link)
+    justify-content: center;
+    align-items: center; */
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--bg-secondary-color);
+    box-shadow: 2px 2px 2px var(--greetings-color);
+}
+
+.card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* чтобы убрать баг у картинки, который есть по умолчанию - это небольшой отступ внизу у картинки*/
+}
+
+.card__link {
+    position: absolute;
+    z-index: 2;
+    text-decoration: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card__like {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: none;
+    background-color: transparent;
+    background-image: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 2;
+    transition: color .3s;
+}
+
+.card__like_active {
+    color: red;
+    text-shadow: 3px 2px 2px black;
+    --animate-duration: 2s;
+    animation-name: heartColor;
+    animation-duration: calc(var(--animate-duration)*1.3);
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: backwards;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--card-background);
+    backdrop-filter: blur(3px);
+    visibility: visible;
+    transition: .5s linear;
+    transition-property: backdrop-filter, background-color;
+    pointer-events: none;
+}
+
+.card:hover::before {
+backdrop-filter: blur(0);
+background-color:transparent;
+}
+
+.card__name {
+    font-size: 18px;
+    font-weight: normal;
+    transition: padding 0.3s;
+    border-radius: 5px;
+}
+
+.card:hover .card__name {
+    background-color: #fff8;
+    padding: 10px 40px;
+}
+
+.card__name:hover:after {
+    font: var(--fa-font-solid);
+    content: "\f00e";
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    right: 10px;
+    /* left: 100%; */
+    margin-left: 5px;
+}
+
+@keyframes heartColor {
+    0% {
+        color: rgb(0, 0, 0);
+    }
+    5% {
+        color: rgb(146, 62, 125);
+    }
+    10% {
+        text-shadow: 1px 1px 1px  rgb(0, 0, 0);
+    }
+    20% {
+        color: rgb(232, 95, 95);
+    }
+    30% {
+        transform: scale(1.5);
+    }
+    40% {
+        text-shadow: 5px 5px 5px  rgb(0, 0, 0);
+    }
+    50% {
+        color: rgb(251, 165, 79);
+    }
+    60% {
+        transform: scale(1);
+    }
+    70% {
+        text-shadow: 10px 10px 10px rgb(0, 0, 0);
+    }
+    75% {
+        color: rgb(250, 246, 10);
+    }
+    80% {
+        text-shadow: 5px 5px 5px rgb(0, 0, 0);
+    }
+    85% {
+        transform: scale(1.5);
+    }
+    90% {
+        text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    }
+    95% {
+        color: rgb(250, 30, 1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
